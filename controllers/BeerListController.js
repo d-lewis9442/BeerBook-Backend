@@ -11,6 +11,8 @@ const GetRecentBeerLists = async (req, res) => {
 
 const CreateBeerList = async (req, res) => {
   try {
+    const newBeerList = await BeerList.create({ ...req.body })
+    res.send(newBeerList)
   } catch (error) {
     throw error
   }
