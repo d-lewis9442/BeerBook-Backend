@@ -44,22 +44,6 @@
 
 ### **_Screenshots_**
 
-##### Main Page
-
-![mainpage]()
-
-##### Create Vehicle Page
-
-![createvehiclepage]()
-
-##### Vehicle Page
-
-![vehiclepage]()
-
-##### Garage Page
-
-![garagepage]()
-
 ---
 
 ### **_Future Updates_**
