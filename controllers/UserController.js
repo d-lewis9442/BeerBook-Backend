@@ -1,12 +1,11 @@
 const { User } = require('../models')
 
-// const GetUser = async (req, res) => {
-//   try {
-
-//   } catch (error) {
-//     throw error
-//   }
-// }
+const GetUser = async (req, res) => {
+  try {
+  } catch (error) {
+    throw error
+  }
+}
 
 const CreateUser = async (req, res) => {
   try {
