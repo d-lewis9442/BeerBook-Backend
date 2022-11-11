@@ -44,3 +44,11 @@ const stripToken = (req, res, next) => {
     res.status(401).send({ status: 'Error', msg: 'Unauthorized' })
   }
 }
+
+module.exports = {
+  stripToken,
+  verifyToken,
+  createToken,
+  comparePassword,
+  hashPassword
+}
