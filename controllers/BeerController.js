@@ -29,6 +29,11 @@ const CreateBeer = async (req, res) => {
 
 const UpdateBeer = async (req, res) => {
   try {
+    const updatedBeer = await Beer.update(
+      { ...req.body },
+      { where: { id: req.params.beer_id }, returning: true }
+    )
+    res.send(updatedBeer)
   } catch (error) {
     throw error
   }
