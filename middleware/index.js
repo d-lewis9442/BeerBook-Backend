@@ -32,3 +32,15 @@ const verifyToken = (req, res, next) => {
     res.status(401).send({ status: 'Error', msg: 'Unauthorized' })
   }
 }
+
+const stripToken = (req, res, next) => {
+  try {
+    const token = req.headers['authorized'].split(' ')[1]
+    if (token) {
+      req.locals.token = token
+      return next()
+    }
+  } catch (error) {
+    res.status(401).send({ status: 'Error', msg: 'Unauthorized' })
+  }
+}
