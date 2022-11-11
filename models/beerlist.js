@@ -10,7 +10,10 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       BeerList.belongsTo(models.User, { foreignKey: 'userId' })
-      BeerList.hasMany(models.Beer, { foreignKey: 'beerId' })
+      BeerList.belongsToMany(models.Beer, {
+        through: 'beerlist_beers',
+        foreignKey: 'beerId'
+      })
     }
   }
   BeerList.init(
