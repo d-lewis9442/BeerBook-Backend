@@ -16,6 +16,11 @@ router.put(
   middleware.verifyToken,
   controller.UpdateBeerList
 )
-router.delete('/:beerlist_id', controller.DeleteBeerList)
+router.delete(
+  '/:beerlist_id',
+  middleware.stripToken,
+  middleware.verifyToken,
+  controller.DeleteBeerList
+)
 
 module.exports = router
