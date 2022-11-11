@@ -11,6 +11,8 @@ const GetAllBeer = async (req, res) => {
 
 const GetABeer = async (req, res) => {
   try {
+    const aBeer = await Beer.findByPk(req.params.beer_id)
+    res.send(aBeer)
   } catch (error) {
     throw error
   }
@@ -18,6 +20,8 @@ const GetABeer = async (req, res) => {
 
 const CreateBeer = async (req, res) => {
   try {
+    const newBeer = await Beer.create({ ...req.body })
+    res.send(newBeer)
   } catch (error) {
     throw error
   }

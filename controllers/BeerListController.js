@@ -9,6 +9,15 @@ const GetRecentBeerLists = async (req, res) => {
   }
 }
 
+const GetABeerList = async (req, res) => {
+  try {
+    const aBeerList = await BeerList.findByPk(req.params.beerlist_id)
+    res.send(aBeerList)
+  } catch (error) {
+    throw error
+  }
+}
+
 const CreateBeerList = async (req, res) => {
   try {
     const newBeerList = await BeerList.create({ ...req.body })
@@ -45,6 +54,7 @@ const DeleteBeerList = async (req, res) => {
 
 module.exports = {
   GetRecentBeerLists,
+  GetABeerList,
   CreateBeerList,
   UpdateBeerList,
   DeleteBeerList
