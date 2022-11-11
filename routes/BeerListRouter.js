@@ -3,7 +3,7 @@ const controller = require('../controllers/BeerListController')
 
 router.get('/', controller.GetRecentBeerLists)
 router.post('/', controller.CreateBeerList)
-router.put('/', controller.UpdateBeerList)
-router.delete('/', controller.DeleteBeerList)
+router.put('/:beerlist_id', controller.UpdateBeerList)
+router.delete('/:beerlist_id', controller.DeleteBeerList)
 
 module.exports = router
