@@ -3,8 +3,14 @@ const { BeerList, User, Beer } = require('../models')
 const GetRecentBeerLists = async (req, res) => {
   try {
     const beerLists = await BeerList.findAll({
-      include: User
+      include: BeerList.beerId
     })
+    // let id = beerLists[0].dataValues.beerId
+    // const beer = await Beer.findByPk(id)
+    // console.log(beer.dataValues)
+    // res.send(beerLists, {
+    //   where: { beerId: beer.dataValues }
+    // })
     res.send(beerLists)
   } catch (error) {
     throw error
