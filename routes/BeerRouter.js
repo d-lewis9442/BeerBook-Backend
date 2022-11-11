@@ -1,9 +1,10 @@
 const router = require('express').Router()
 const controller = require('../controllers/BeerController')
 
-router.get('/', controller.GetBeer)
+router.get('/', controller.GetABeer)
+router.get('/', controller.GetAllBeer)
 router.post('/', controller.CreateBeer)
-router.put('/:beerlist_id', controller.UpdateBeer)
-router.delete('/:beerlist_id', controller.DeleteBeer)
+router.put('/:beer_id', controller.UpdateBeer)
+router.delete('/:beer_id', controller.DeleteBeer)
 
 module.exports = router
