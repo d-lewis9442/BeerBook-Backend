@@ -2,7 +2,9 @@ const { BeerList, User, Beer } = require('../models')
 
 const GetRecentBeerLists = async (req, res) => {
   try {
-    const beerLists = await BeerList.findAll({ limit: 5 })
+    const beerLists = await BeerList.findAll({
+      include: User
+    })
     res.send(beerLists)
   } catch (error) {
     throw error
