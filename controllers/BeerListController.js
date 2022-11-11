@@ -1,4 +1,4 @@
-const { BeerList } = require('../models')
+const { BeerList, User, Beer } = require('../models')
 
 const GetRecentBeerLists = async (req, res) => {
   try {
@@ -11,7 +11,14 @@ const GetRecentBeerLists = async (req, res) => {
 
 const GetABeerList = async (req, res) => {
   try {
-    const aBeerList = await BeerList.findByPk(req.params.beerlist_id)
+    const aBeerList = await BeerList.findByPk(req.params.beerlist_id, {
+      include: {
+        model: User
+      },
+      include: {
+        model: Beer
+      }
+    })
     res.send(aBeerList)
   } catch (error) {
     throw error
