@@ -29,19 +29,19 @@ const verifyToken = (req, res, next) => {
     }
     res.status(401).send({ status: 'Error', msg: 'Unauthorized' })
   } catch (error) {
-    res.status(401).send({ status: 'Error', msg: 'Unauthorized' })
+    res.status(401).send({ status: 'Verify Error', msg: 'Unauthorized' })
   }
 }
 
 const stripToken = (req, res, next) => {
   try {
-    const token = req.headers['authorized'].split(' ')[1]
+    const token = req.headers['authorization'].split(' ')[1]
     if (token) {
-      req.locals.token = token
+      res.locals.token = token
       return next()
     }
   } catch (error) {
-    res.status(401).send({ status: 'Error', msg: 'Unauthorized' })
+    res.status(401).send({ status: 'Strip Error', msg: 'Unauthorized' })
   }
 }
 

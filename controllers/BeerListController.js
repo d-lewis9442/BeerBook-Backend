@@ -30,9 +30,9 @@ const GetABeerList = async (req, res) => {
 
 const CreateBeerList = async (req, res) => {
   try {
-    const userId = parseInt(req.params.user_id)
+    //const userId = parseInt(req.params.user_id)
     const listBody = {
-      userId,
+      //userId,
       ...req.body
     }
     const newBeerList = await BeerList.create(listBody)
