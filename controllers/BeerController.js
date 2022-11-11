@@ -41,6 +41,12 @@ const UpdateBeer = async (req, res) => {
 
 const DeleteBeer = async (req, res) => {
   try {
+    await Beer.destroy({ where: { id: req.params.beer_id } })
+    res.send({
+      msg: 'Beer Deleted',
+      payload: req.params.beer_id,
+      status: 'Ok'
+    })
   } catch (error) {
     throw error
   }
