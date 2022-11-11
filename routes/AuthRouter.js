@@ -7,8 +7,8 @@ router.post('/register', controller.Register)
 router.put(
   '/updatePassword',
   middleware.stripToken,
-  middleware.verifyToken,
-  controller.UpdatePassword
+  middleware.verifyToken
+  //controller.UpdatePassword
 )
 
 module.exports = router

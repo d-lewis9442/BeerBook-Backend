@@ -7,7 +7,7 @@ const APP_SECRET = process.env.APP_SECRET
 
 const hashPassword = async (password) => {
   let hashedPassword = await bcrypt.hash(password, SALT_ROUNDS)
-  return hashPassword
+  return hashedPassword
 }
 
 const comparePassword = async (storedPassword, password) => {
