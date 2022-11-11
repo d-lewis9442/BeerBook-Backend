@@ -2,6 +2,8 @@ const { User } = require('../models')
 
 const GetUser = async (req, res) => {
   try {
+    const user = await User.findAll()
+    res.send(user)
   } catch (error) {
     throw error
   }
@@ -29,8 +31,8 @@ const YeetUser = async (req, res) => {
 }
 
 module.exports = {
-  //GetUser,
-  CreateUser,
-  UpdateUser,
-  YeetUser
+  GetUser
+  // CreateUser,
+  // UpdateUser,
+  // YeetUser
 }
