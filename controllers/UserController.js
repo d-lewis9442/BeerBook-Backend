@@ -9,6 +9,15 @@ const GetUser = async (req, res) => {
   }
 }
 
+const GetUserById = async (req, res) => {
+  try {
+    const user = await User.findByPk(1)
+    res.send(user)
+  } catch (error) {
+    throw error
+  }
+}
+
 const CreateUser = async (req, res) => {
   try {
   } catch (error) {
@@ -31,7 +40,8 @@ const YeetUser = async (req, res) => {
 }
 
 module.exports = {
-  GetUser
+  GetUser,
+  GetUserById
   // CreateUser,
   // UpdateUser,
   // YeetUser

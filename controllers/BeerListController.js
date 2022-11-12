@@ -3,8 +3,14 @@ const { BeerList, User, Beer } = require('../models')
 const GetRecentBeerLists = async (req, res) => {
   try {
     const beerLists = await BeerList.findAll({
-      include: User
+      include: BeerList.beerId
     })
+    // let id = beerLists[0].dataValues.beerId
+    // const beer = await Beer.findByPk(id)
+    // console.log(beer.dataValues)
+    // res.send(beerLists, {
+    //   where: { beerId: beer.dataValues }
+    // })
     res.send(beerLists)
   } catch (error) {
     throw error
@@ -14,12 +20,7 @@ const GetRecentBeerLists = async (req, res) => {
 const GetABeerList = async (req, res) => {
   try {
     const aBeerList = await BeerList.findByPk(req.params.beerlist_id, {
-      include: {
-        model: User
-      },
-      include: {
-        model: Beer
-      }
+      include: BeerList.beerId
     })
     res.send(aBeerList)
   } catch (error) {
@@ -29,9 +30,9 @@ const GetABeerList = async (req, res) => {
 
 const CreateBeerList = async (req, res) => {
   try {
-    const userId = parseInt(req.params.user_id)
+    //const userId = parseInt(req.params.user_id)
     const listBody = {
-      userId,
+      //userId,
       ...req.body
     }
     const newBeerList = await BeerList.create(listBody)
