@@ -1,6 +1,6 @@
-const { User } = require('../models')
+const { User, BeerList } = require('../models')
 
-const GetUser = async (req, res) => {
+const GetAllUsers = async (req, res) => {
   try {
     const user = await User.findAll()
     res.send(user)
@@ -18,31 +18,19 @@ const GetUserById = async (req, res) => {
   }
 }
 
-const CreateUser = async (req, res) => {
+const GetUserAndTheirBeerLists = async (req, res) => {
   try {
-  } catch (error) {
-    throw error
-  }
-}
-
-const UpdateUser = async (req, res) => {
-  try {
-  } catch (error) {
-    throw error
-  }
-}
-
-const YeetUser = async (req, res) => {
-  try {
+    const user = await User.findByPk(1, {
+      include: BeerList
+    })
+    res.send(user)
   } catch (error) {
     throw error
   }
 }
 
 module.exports = {
-  GetUser,
-  GetUserById
-  // CreateUser,
-  // UpdateUser,
-  // YeetUser
+  GetAllUsers,
+  GetUserById,
+  GetUserAndTheirBeerLists
 }
