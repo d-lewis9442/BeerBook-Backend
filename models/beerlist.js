@@ -9,10 +9,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      BeerList.belongsTo(models.User, { foreignKey: 'userId' })
-      BeerList.hasMany(models.Beer, {
-        //through: 'beerlist_beers',
-        foreignKey: 'beerId'
+      BeerList.belongsTo(models.User, { as: 'creator', foreignKey: 'userId' })
+      BeerList.belongsToMany(models.Beer, {
+        through: 'beer_list_beers',
+        as: 'lists',
+        foreignKey: 'beerListId'
       })
     }
   }
@@ -29,15 +30,15 @@ module.exports = (sequelize, DataTypes) => {
           model: 'users',
           key: 'id'
         }
-      },
-      beerId: {
-        type: DataTypes.INTEGER,
-        onDelete: 'CASCADE',
-        references: {
-          model: 'beers',
-          key: 'id'
-        }
-      }
+      } //,
+      // beerId: {
+      //   type: DataTypes.INTEGER,
+      //   onDelete: 'CASCADE',
+      //   references: {
+      //     model: 'beers',
+      //     key: 'id'
+      //   }
+      // }
     },
     {
       sequelize,

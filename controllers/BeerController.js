@@ -3,8 +3,7 @@ const { Beer } = require('../models')
 const GetAllBeer = async (req, res) => {
   try {
     const beers = await Beer.findAll()
-    console.log(beers)
-    // res.send(beers)
+    res.send(beers)
   } catch (error) {
     throw error
   }
