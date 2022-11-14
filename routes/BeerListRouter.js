@@ -16,6 +16,7 @@ router.put(
   middleware.verifyToken,
   controller.UpdateBeerList
 )
+
 router.delete(
   '/:beerlist_id',
   middleware.stripToken,

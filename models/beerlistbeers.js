@@ -1,5 +1,5 @@
 'use strict'
-const { Model } = require('sequelize')
+const { Model, ARRAY } = require('sequelize')
 module.exports = (sequelize, DataTypes) => {
   class BeerListBeers extends Model {
     /**
@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
   BeerListBeers.init(
     {
       beerListId: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.ARRAY(DataTypes.INTEGER),
         allowNull: false,
         references: {
           model: 'beer_lists',
@@ -22,8 +22,7 @@ module.exports = (sequelize, DataTypes) => {
         }
       },
       beerId: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
+        type: DataTypes.ARRAY(DataTypes.INTEGER),
         references: {
           model: 'beers',
           key: 'id'

@@ -12,8 +12,9 @@ module.exports = (sequelize, DataTypes) => {
       BeerList.belongsTo(models.User, { as: 'creator', foreignKey: 'userId' })
       BeerList.belongsToMany(models.Beer, {
         through: 'beer_list_beers',
-        as: 'lists',
-        foreignKey: 'beerListId'
+        as: 'beers',
+        foreignKey: 'beerListId',
+        otherKey: 'beerId'
       })
     }
   }
@@ -29,16 +30,16 @@ module.exports = (sequelize, DataTypes) => {
         references: {
           model: 'users',
           key: 'id'
+        },
+        beerId: {
+          type: DataTypes.ARRAY(DataTypes.INTEGER),
+          onDelete: 'CASCADE',
+          references: {
+            model: 'beers',
+            key: 'id'
+          }
         }
-      } //,
-      // beerId: {
-      //   type: DataTypes.INTEGER,
-      //   onDelete: 'CASCADE',
-      //   references: {
-      //     model: 'beers',
-      //     key: 'id'
-      //   }
-      // }
+      }
     },
     {
       sequelize,
