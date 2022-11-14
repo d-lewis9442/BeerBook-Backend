@@ -10,7 +10,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       beerListId: {
-        type: Sequelize.ARRAY(Sequelize.INTEGER),
+        type: Sequelize.INTEGER,
         allowNull: false,
         references: {
           model: 'beer_lists',
@@ -18,7 +18,7 @@ module.exports = {
         }
       },
       beerId: {
-        type: Sequelize.ARRAY(Sequelize.INTEGER),
+        type: Sequelize.INTEGER,
         references: {
           model: 'beers',
           key: 'id'

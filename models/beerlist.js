@@ -32,7 +32,7 @@ module.exports = (sequelize, DataTypes) => {
           key: 'id'
         },
         beerId: {
-          type: DataTypes.ARRAY(DataTypes.INTEGER),
+          type: DataTypes.INTEGER,
           onDelete: 'CASCADE',
           references: {
             model: 'beers',

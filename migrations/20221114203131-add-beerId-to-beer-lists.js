@@ -4,7 +4,7 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.addColumn('beer_lists', 'beerId', {
-      type: Sequelize.ARRAY(Sequelize.INTEGER),
+      type: Sequelize.INTEGER,
       onDelete: 'CASCADE',
       references: {
         model: 'beers',

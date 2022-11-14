@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
   BeerListBeers.init(
     {
       beerListId: {
-        type: DataTypes.ARRAY(DataTypes.INTEGER),
+        type: DataTypes.INTEGER,
         allowNull: false,
         references: {
           model: 'beer_lists',
@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
         }
       },
       beerId: {
-        type: DataTypes.ARRAY(DataTypes.INTEGER),
+        type: DataTypes.INTEGER,
         references: {
           model: 'beers',
           key: 'id'
