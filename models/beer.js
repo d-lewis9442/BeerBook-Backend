@@ -12,8 +12,8 @@ module.exports = (sequelize, DataTypes) => {
       Beer.belongsToMany(models.BeerList, {
         through: 'beer_list_beers',
         as: 'lists',
-        foreignKey: 'beerId',
-        otherKey: 'beerListId'
+        foreignKey: 'beerId'
+        //otherKey: 'beerListId'
       })
     }
   }
@@ -35,15 +35,15 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false
       },
-      image: DataTypes.STRING,
-      beerListId: {
-        type: DataTypes.ARRAY(DataTypes.INTEGER),
-        onDelete: 'CASCADE',
-        references: {
-          model: 'beer_lists',
-          key: 'id'
-        }
-      }
+      image: DataTypes.STRING
+      // beerListId: {
+      //   type: DataTypes.ARRAY(DataTypes.INTEGER),
+      //   onDelete: 'CASCADE',
+      //   references: {
+      //     model: 'beer_lists',
+      //     key: 'id'
+      //   }
+      // }
     },
     {
       sequelize,
