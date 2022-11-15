@@ -11,7 +11,8 @@ const GetAllUsers = async (req, res) => {
 
 const GetUserById = async (req, res) => {
   try {
-    const user = await User.findByPk(1)
+    let id = parseInt(req.params.user_id)
+    const user = await User.findByPk(id)
     res.send(user)
   } catch (error) {
     throw error
@@ -20,7 +21,8 @@ const GetUserById = async (req, res) => {
 
 const GetUserAndTheirBeerLists = async (req, res) => {
   try {
-    const user = await User.findByPk(1, {
+    let id = parseInt(req.params.user_id)
+    const user = await User.findByPk(id, {
       include: BeerList
     })
     res.send(user)
