@@ -7,18 +7,21 @@ module.exports = {
       {
         name: 'Maxs Brews',
         userId: 1,
+        beerId: 1,
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
         name: 'Aarons Tasty Bevs',
         userId: 2,
+        beerId: 1,
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
         name: 'Dereks Scrump Bevs',
         userId: 3,
+        beerId: 1,
         createdAt: new Date(),
         updatedAt: new Date()
       }

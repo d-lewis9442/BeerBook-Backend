@@ -37,7 +37,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       image: DataTypes.STRING,
       beerListId: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.ARRAY(DataTypes.INTEGER),
         onDelete: 'CASCADE',
         references: {
           model: 'beer_lists',

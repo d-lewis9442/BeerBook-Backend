@@ -30,14 +30,14 @@ module.exports = (sequelize, DataTypes) => {
         references: {
           model: 'users',
           key: 'id'
-        },
-        beerId: {
-          type: DataTypes.INTEGER,
-          onDelete: 'CASCADE',
-          references: {
-            model: 'beers',
-            key: 'id'
-          }
+        }
+      },
+      beerId: {
+        type: DataTypes.ARRAY(DataTypes.INTEGER),
+        onDelete: 'CASCADE',
+        references: {
+          model: 'beers',
+          key: 'id'
         }
       }
     },
