@@ -13,7 +13,6 @@ module.exports = (sequelize, DataTypes) => {
         through: 'beer_list_beers',
         as: 'lists',
         foreignKey: 'beerId'
-        //otherKey: 'beerListId'
       })
     }
   }
@@ -36,14 +35,6 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false
       },
       image: DataTypes.STRING
-      // beerListId: {
-      //   type: DataTypes.ARRAY(DataTypes.INTEGER),
-      //   onDelete: 'CASCADE',
-      //   references: {
-      //     model: 'beer_lists',
-      //     key: 'id'
-      //   }
-      // }
     },
     {
       sequelize,

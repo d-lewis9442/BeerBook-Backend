@@ -29,7 +29,7 @@ const CreateBeerList = async (req, res) => {
     const listBody = {
       ...req.body
     }
-    const newBeerList = await BeerList.create(listBody) //the through table is not changing when a new list is created
+    const newBeerList = await BeerList.create(listBody)
     res.send(newBeerList)
   } catch (error) {
     throw error
@@ -49,40 +49,6 @@ const updateBeerListById = async (req, res) => {
     throw error
   }
 }
-
-// const UpdateBeerList = async (req, res) => {
-//   try {
-//     const beerListId = parseInt(req.params.beerlist_id)
-//     const listToChange = await BeerList.findByPk(
-//       beerListId
-//       //{ ...req.body }, //push req.body.beerId to beerId
-//       //{ where: { id: beerListId }, returning: true }
-//     )
-//     console.log(listToChange)
-//     const beerArr = [...listToChange.beers]
-
-//     beerArr.push(req.body.beerId)
-//     const updatedBeerList = await BeerList.update(
-//       { beers: beerArr },
-//       { where: { id: beerListId }, returning: true }
-//     )
-//     res.send(updatedBeerList)
-//   } catch (error) {
-//     throw error
-//   }
-// }
-
-// const updateBeerListById = async (req, res) => {
-//   try {
-//     const beerId = await Beer.findByPk( req.body.beerId )
-//     const updatedBeer = await Beer.update(req.body, { where: { id: beerId }, returning: true })
-//     res.status(200).json(updatedBeer)
-//     const beerList = await Beer.findAll({ where: { lists: req.params.beerList_id }})
-//     res.send(beerList)
-//   } catch (error) {
-//     throw error
-//   }
-// }
 
 const DeleteBeerList = async (req, res) => {
   try {
