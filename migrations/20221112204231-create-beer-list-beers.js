@@ -19,7 +19,6 @@ module.exports = {
       },
       beerId: {
         type: Sequelize.INTEGER,
-        allowNull: false,
         references: {
           model: 'beers',
           key: 'id'
