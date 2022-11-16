@@ -3,7 +3,8 @@ const { BeerList, User, Beer, BeerListBeers } = require('../models')
 const GetRecentBeerLists = async (req, res) => {
   try {
     const beerLists = await BeerList.findAll({
-      include: { model: User, as: 'creator' }
+      include: { model: User, as: 'creator' },
+      include: { model: Beer, through: BeerListBeers, as: 'beers' }
     })
     res.send(beerLists)
   } catch (error) {
@@ -17,7 +18,6 @@ const GetABeerList = async (req, res) => {
       include: { model: User, as: 'creator' },
       include: { model: Beer, through: BeerListBeers, as: 'beers' }
     })
-    console.log('beers:' + aBeerList.dataValues.beers)
     res.send(aBeerList)
   } catch (error) {
     throw error
