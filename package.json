@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "## Date: 11/18/2022",
   "main": "server.js",
+  "engines": {
+    "node": "18.11.0",
+    "npm": "8.19.2"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
