@@ -53,6 +53,7 @@ const updateBeerListById = async (req, res) => {
 const DeleteBeerList = async (req, res) => {
   try {
     const beerListId = parseInt(req.params.beerlist_id)
+    await BeerListBeers.destroy({ where: { beerListId: beerListId } })
     await BeerList.destroy({ where: { id: beerListId } })
     res.send({
       msg: 'List Deleted',
