@@ -17,7 +17,6 @@ const GetABeerList = async (req, res) => {
       include: { model: User, as: 'creator' },
       include: { model: Beer, through: BeerListBeers, as: 'beers' }
     })
-    console.log('beers:' + aBeerList.dataValues.beers)
     res.send(aBeerList)
   } catch (error) {
     throw error
