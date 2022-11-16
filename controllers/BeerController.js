@@ -1,8 +1,9 @@
+const Sequelize = require('sequelize')
 const { Beer } = require('../models')
 
 const GetAllBeer = async (req, res) => {
   try {
-    const beers = await Beer.findAll()
+    const beers = await Beer.findAll({ order: [[Sequelize.fn('RANDom')]] })
     res.send(beers)
   } catch (error) {
     throw error
