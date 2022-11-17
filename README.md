@@ -10,11 +10,11 @@
 
 ### Date: 11/18/2022
 
-#### By: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Derek Lewis | [LinkedIn](http://www.linkedin.com/in/derek-r-lewis) | [GitHub](https://github.com/d-lewis9442)
+#### By: &nbsp;Derek Lewis | [LinkedIn](http://www.linkedin.com/in/derek-r-lewis) | [GitHub](https://github.com/d-lewis9442)
 
-#### &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Max Calabro | [LinkedIn](https://www.linkedin.com/in/max-calabro) | [GitHub](https://github.com/max-calabro)
+#### &nbsp; &nbsp; &nbsp; &nbsp;Max Calabro | [LinkedIn](https://www.linkedin.com/in/max-calabro) | [GitHub](https://github.com/max-calabro)
 
-#### &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Aaron Sanchez | [LinkedIn](https://www.linkedin.com/in/aaron-g-sanchez) | [GitHub](https://github.com/Aaron-G-Sanchez)
+#### &nbsp;&nbsp;&nbsp;Aaron Sanchez | [LinkedIn](https://www.linkedin.com/in/aaron-g-sanchez) | [GitHub](https://github.com/Aaron-G-Sanchez)
 
 &nbsp;
 
