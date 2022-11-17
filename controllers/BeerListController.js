@@ -3,6 +3,8 @@ const { BeerList, User, Beer, BeerListBeers } = require('../models')
 const GetRecentBeerLists = async (req, res) => {
   try {
     const beerLists = await BeerList.findAll({
+      limit: 5,
+      order: [['updatedAt', 'DESC']],
       include: { model: User, as: 'creator' }
     })
     res.send(beerLists)
@@ -51,15 +53,29 @@ const updateBeerListById = async (req, res) => {
 
 const RemoveABeerFromAList = async (req, res) => {
   try {
-    const beerList_id = req.params.beerList_id
+    const beerList_id = req.params.beerlist_id
     const beer_id = req.params.beer_id
     await BeerListBeers.destroy({
       where: { beerListId: beerList_id } && { beerId: beer_id }
     })
-    res.send({
-      msg: `Beer of id ${beer_id} removed from list of id ${beerList_id}`,
-      status: 'Ok'
+    const respoonse = await BeerList.findByPk(beerList_id, {
+      include: { model: Beer, through: BeerListBeers, as: 'beers' }
     })
+    res.send(respoonse)
+  } catch (error) {
+    throw error
+  }
+}
+
+const RenameABeerList = async (req, res) => {
+  try {
+    const beerList_id = req.params.beerlist_id
+    const name = req.body
+    const updatedList = await BeerList.update(
+      { name: name },
+      { where: { id: beerList_id } }
+    )
+    res.send(updatedList)
   } catch (error) {
     throw error
   }
@@ -86,5 +102,6 @@ module.exports = {
   CreateBeerList,
   updateBeerListById,
   RemoveABeerFromAList,
+  RenameABeerList,
   DeleteBeerList
 }
