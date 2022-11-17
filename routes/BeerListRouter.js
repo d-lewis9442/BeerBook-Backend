@@ -17,7 +17,7 @@ router.put(
   controller.updateBeerListById
 )
 router.put(
-  '/:beerlist_id',
+  '/rename/:beerlist_id',
   middleware.stripToken,
   middleware.verifyToken,
   controller.RenameABeerList

@@ -70,10 +70,10 @@ const RemoveABeerFromAList = async (req, res) => {
 const RenameABeerList = async (req, res) => {
   try {
     const beerList_id = req.params.beerlist_id
-    const name = req.body
+    const { name } = req.body
     const updatedList = await BeerList.update(
       { name: name },
-      { where: { id: beerList_id } }
+      { where: { id: beerList_id }, returning: true }
     )
     res.send(updatedList)
   } catch (error) {
