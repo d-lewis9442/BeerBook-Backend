@@ -50,6 +50,22 @@ const updateBeerListById = async (req, res) => {
   }
 }
 
+const RemoveABeerFromAList = async (req, res) => {
+  try {
+    const beerList_id = req.params.beerList_id
+    const beer_id = req.params.beer_id
+    await BeerListBeers.destroy({
+      where: { beerListId: beerList_id } && { beerId: beer_id }
+    })
+    res.send({
+      msg: `Beer of id ${beer_id} removed from list of id ${beerList_id}`,
+      status: 'Ok'
+    })
+  } catch (error) {
+    throw error
+  }
+}
+
 const DeleteBeerList = async (req, res) => {
   try {
     const beerListId = parseInt(req.params.beerlist_id)
@@ -70,5 +86,6 @@ module.exports = {
   GetABeerList,
   CreateBeerList,
   updateBeerListById,
+  RemoveABeerFromAList,
   DeleteBeerList
 }
