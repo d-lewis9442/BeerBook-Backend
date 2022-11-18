@@ -1,10 +1,21 @@
 const Sequelize = require('sequelize')
-const { Beer } = require('../models')
+const { Beer, BeerList } = require('../models')
 
 const GetAllBeer = async (req, res) => {
   try {
     const beers = await Beer.findAll({ order: [[Sequelize.fn('RANDOM')]] })
     res.send(beers)
+  } catch (error) {
+    throw error
+  }
+}
+
+const GetAllBeerOrderRecent = async (req, res) => {
+  try {
+    const recentBeers = await Beer.findAll({
+      order: [['id', 'DESC']]
+    })
+    res.send(recentBeers)
   } catch (error) {
     throw error
   }
@@ -55,6 +66,7 @@ const DeleteBeer = async (req, res) => {
 
 module.exports = {
   GetAllBeer,
+  GetAllBeerOrderRecent,
   GetABeer,
   CreateBeer,
   UpdateBeer,
