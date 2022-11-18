@@ -58,4 +58,6 @@
 
 ##### General Assembly: [Choose Your Path](https://generalassemb.ly/)
 
+##### Favicon: [Flaticon.com](https://www.flaticon.com/free-icons/hop)
+
 ---
