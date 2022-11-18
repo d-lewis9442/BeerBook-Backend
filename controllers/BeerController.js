@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize')
-const { Beer, BeerList } = require('../models')
+const { Beer } = require('../models')
 
 const GetAllBeer = async (req, res) => {
   try {
