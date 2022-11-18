@@ -3,7 +3,7 @@ const { BeerList, User, Beer, BeerListBeers } = require('../models')
 const GetRecentBeerLists = async (req, res) => {
   try {
     const beerLists = await BeerList.findAll({
-      limit: 5,
+      limit: 30,
       order: [['updatedAt', 'DESC']],
       include: { model: User, as: 'creator' }
     })
